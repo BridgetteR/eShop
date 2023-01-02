@@ -1,0 +1,39 @@
+.HeadingButtons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 40px;
+    margin-left: 45px;
+
+    &__Heart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0px 5px;
+        background-color: #51344d;
+        height: 100%;
+        padding: 0px 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #6f5060;
+        }
+    }
+
+    &__Cart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0px 5px;
+        background-color: #51344d;
+        height: 100%;
+        padding: 0px 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #6f5060;
+        }
+    }
+}

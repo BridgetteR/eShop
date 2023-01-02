@@ -1,0 +1,14 @@
+.App {
+    margin: 0 auto;
+}
+
+hr {
+    background-image: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.26),
+        transparent
+    );
+    height: 1px;
+    border: none;
+}
