@@ -4,11 +4,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { getAllProducts } from "./services/products";
 import { useState } from "react";
 import { useEffect } from "react";
+import CarouselContainer from "./containers/CarouselContainer/CarouselContainer";
+import ProductGrid from "./containers/ProductGrid/ProductGrid";
+import ProductPage from "./containers/ProductPage/ProductPage";
 
 function App() {
     const [products, setProducts] = useState([]);
 
-    const [added, setAdded] = useState(0);
+    const [added, setAdded] = useState(false);
 
     useEffect(() => {
         const wrapper = async () => {
@@ -17,7 +20,6 @@ function App() {
         };
 
         wrapper();
-        console.log(products);
     }, [added]);
 
     return (
@@ -31,7 +33,20 @@ function App() {
                         path="/"
                         element={
                             <div>
-                                <h1>Test</h1>
+                                {/* <CarouselContainer
+                                    products={products}
+                                    added={added}
+                                    setAdded={setAdded}
+                                /> */}
+                                <ProductGrid products={products} />
+                            </div>
+                        }
+                    />
+                    <Route
+                        path="/product/:id"
+                        element={
+                            <div>
+                                <ProductPage />
                             </div>
                         }
                     />
