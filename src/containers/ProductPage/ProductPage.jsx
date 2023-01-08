@@ -1,12 +1,11 @@
 import styles from "./ProductPage.module.scss";
 import { getProductById } from "../../services/products";
 import { useEffect } from "react";
-import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
-const ProductPage = () => {
+const ProductPage = ({}) => {
     const { id } = useParams();
-
     const [productInfo, setProductInfo] = useState({});
 
     const [edition, setEdition] = useState("Standard");

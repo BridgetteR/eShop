@@ -1,10 +1,12 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import CarouselCard from "../../components/CarouselCard/CarouselCard";
 import styles from "./CarouselContainer.module.scss";
 
-const CarouselContainer = ({ products, added, setAdded }) => {
+const CarouselContainer = ({ products, isFeatured }) => {
     const [index, setIndex] = useState(0);
-    const length = products.length;
+
+    const length = isFeatured.length;
 
     const handlePrevious = () => {
         const newIndex = index - 1;
@@ -16,17 +18,26 @@ const CarouselContainer = ({ products, added, setAdded }) => {
         setIndex(newIndex >= length ? 0 : newIndex);
     };
 
+    const displayCard = () => {
+        for (let i = 0; i < length; ++i) {
+            if (index === i) {
+                return <CarouselCard product={isFeatured[i]} index={index} />;
+            }
+        }
+    };
+
     return (
         <div className={styles.CarouselContainer}>
             <h1>Featured Products</h1>
 
             <div className={styles.CarouselContainer__Wrapper}>
-                <button onClick={handlePrevious}>Previous</button>
-                <button onClick={handleNext}>Next</button>
-                <p>{index}</p>
-                {products.map((product) => {
-                    return <CarouselCard key={product.id} product={product} />;
-                })}
+                <button className={styles.btn} onClick={handlePrevious}>
+                    &lt;
+                </button>
+                {displayCard()}
+                <button className={styles.btn} onClick={handleNext}>
+                    &gt;
+                </button>
             </div>
         </div>
     );

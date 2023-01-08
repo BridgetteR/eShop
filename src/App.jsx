@@ -10,17 +10,25 @@ import ProductPage from "./containers/ProductPage/ProductPage";
 
 function App() {
     const [products, setProducts] = useState([]);
-
-    const [added, setAdded] = useState(false);
+    const [isFeatured, setIsFeatured] = useState([]);
 
     useEffect(() => {
         const wrapper = async () => {
             const allProducts = await getAllProducts();
             setProducts(allProducts);
+            const data = allProducts;
+            const shortData = [];
+            for (let i = 0; i < data.length; ++i) {
+                if (data[i].featured == true) {
+                    shortData.push(data[i]);
+                }
+            }
+            setIsFeatured(shortData);
+            console.log(shortData);
         };
 
         wrapper();
-    }, [added]);
+    }, []);
 
     return (
         <div className={styles.App}>
@@ -33,11 +41,10 @@ function App() {
                         path="/"
                         element={
                             <div>
-                                {/* <CarouselContainer
+                                <CarouselContainer
                                     products={products}
-                                    added={added}
-                                    setAdded={setAdded}
-                                /> */}
+                                    isFeatured={isFeatured}
+                                />
                                 <ProductGrid products={products} />
                             </div>
                         }
