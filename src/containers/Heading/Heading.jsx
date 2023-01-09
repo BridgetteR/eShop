@@ -1,6 +1,6 @@
 import SearchBar from "../../components/SearchBar/SearchBar";
 import styles from "./Heading.module.scss";
-import Logo from "../../assets/Logo.svg";
+import Logo from "../../assets/Tenzen.png";
 import HeadingButtons from "../../components/HeadingButtons/HeadingButtons";
 import { NavLink } from "react-router-dom";
 
