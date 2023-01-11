@@ -1,7 +1,7 @@
 import ProductCard from "../../components/ProductCard";
 import styles from "./ProductGrid.module.scss";
 
-const ProductGrid = ({ products }) => {
+const ProductGrid = ({ products, isFavourite, setIsFavourite }) => {
     return (
         <div className={styles.ProductGrid}>
             {products &&

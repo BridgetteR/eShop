@@ -1,4 +1,10 @@
-import { collection, getDocs, getDoc, doc } from "firebase/firestore";
+import {
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    updateDoc,
+} from "firebase/firestore";
 import { db } from "../firestore";
 
 export const getAllProducts = async () => {
@@ -24,4 +30,28 @@ export const getProductById = async (id) => {
     }
 
     return { id: docSnap.id, ...docSnap.data() };
+};
+
+export const updateFavourite = async (id, value) => {
+    const docRef = doc(db, "products", id);
+
+    await updateDoc(docRef, {
+        favourited: value,
+    });
+};
+
+export const updateCart = async (id, value) => {
+    const docRef = doc(db, "products", id);
+
+    await updateDoc(docRef, {
+        inCart: value,
+    });
+};
+
+export const updateStock = async (id, num) => {
+    const docRef = doc(db, "products", id);
+
+    await updateDoc(docRef, {
+        quantity: num,
+    });
 };

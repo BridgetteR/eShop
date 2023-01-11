@@ -2,6 +2,7 @@ import styles from "./CarouselCard.module.scss";
 import HeartEmpty from "../../assets/heartEmpty.svg";
 import Heart from "../../assets/heart.svg";
 import { NavLink } from "react-router-dom";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const Carousel1 = ({ product }) => {
     return (
@@ -18,10 +19,7 @@ const Carousel1 = ({ product }) => {
             <div className={styles.Carousel__Details}>
                 <div className={styles.Carousel__Details__Top}>
                     <h4>{product.edition[1]} Edition</h4>
-                    <button className={styles.Carousel__Details__Top__Fav}>
-                        <p>Add to Favourites</p>
-                        <img src={HeartEmpty} width="15px" />
-                    </button>
+                    <FavouriteButton product={product} />
                 </div>
                 <div className={styles.Tag}>
                     {product.tags.map((tag, index) => {
