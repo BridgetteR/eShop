@@ -1,0 +1,26 @@
+.FavouriteButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #51344d;
+    border: none;
+    border-radius: 25px;
+    padding: 5px;
+    height: 30px;
+
+    & p {
+        color: white;
+        margin: 0px 5px;
+    }
+
+    &__Heart {
+        padding: 0px;
+        margin: 0px 5px;
+        height: 15px;
+    }
+
+    &:active {
+        background-color: #5f3d5b;
+    }
+}

@@ -1,0 +1,32 @@
+.ProductPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    &__Img {
+        width: 30%;
+        padding: 20px;
+    }
+
+    &__Right {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        padding: 20px;
+
+        & h1 {
+            margin: 0px;
+        }
+
+        &__Buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+        }
+    }
+
+    & select {
+        margin-bottom: 15px;
+    }
+}
